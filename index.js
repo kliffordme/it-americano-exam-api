@@ -12,7 +12,7 @@ const userController = require('./src/controllers/userController')
 const commentsController = require('./src/controllers/commentsController')
 
 app.use(cors({
-    origin: 'http://localhost:3000',  // replace with your client app's URL
+    origin: process.env.APP_CLIENT_URL,  // replace with your client app's URL
     credentials: true
 }));
 app.use(express.json());
