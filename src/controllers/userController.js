@@ -91,8 +91,8 @@ exports.loginUser = (req, res) => {
                     if (result) {
                         const token = jwt.sign({UserId: user.UserId}, process.env.JWT_SECRET, {expiresIn: '1h'});
                         res.cookie('token', token, { 
-                            httpOnly: true, 
-                            // secure: true,  // use this if you are using https
+                            // httpOnly: true, 
+                            secure: true,  // use this if you are using https
                             // sameSite: 'strict', // use this if you want to restrict the cookie to the same site
                             // domain: 'your-domain.com', // specify your domain
                         });
