@@ -93,7 +93,7 @@ exports.loginUser = (req, res) => {
                         res.cookie('token', token, { 
                             // httpOnly: true, 
                             secure: true,  // use this if you are using https
-                            // sameSite: 'strict', // use this if you want to restrict the cookie to the same site
+                            sameSite: 'none', // use this if you want to restrict the cookie to the same site
                             // domain: 'your-domain.com', // specify your domain
                         });
                         res.status(200).json({auth: true});
