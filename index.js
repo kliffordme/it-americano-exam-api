@@ -43,13 +43,14 @@ app.post('/users', userController.createUser)
 
 app.post('/users/login', userController.loginUser)
 
-app.get('/users/me', authenticateToken, (req, res) => {
+app.post('/users/me', authenticateToken, (req, res) => {
     // This will send the user details if the token is valid
     res.json(req.user);
   });
   
   function authenticateToken(req, res, next) {
     const token = req.cookies.token;
+    console.log(token)
   
     if (token == null) return res.sendStatus(401);
   
